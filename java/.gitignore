@@ -1,0 +1,13 @@
+*.classpath
+*.project
+*.settings
+/bin
+*.swp
+*.xml
+*/.idea/misc.xml
+/output
+*.iml
+/out
+/.idea
+/target
+*.log
