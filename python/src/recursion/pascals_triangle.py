@@ -21,7 +21,7 @@ import time
 
 
 class Solution(object):
-    pascal_value_store = {}
+    pascal_value_store = {}  # not of major use
 
     def getRow_legacy(self, rowIndex):
         """
@@ -77,4 +77,3 @@ if __name__ == '__main__':
     end_time = time.perf_counter()
 
     print("Time Complexity = ", (end_time - start_time))
-
