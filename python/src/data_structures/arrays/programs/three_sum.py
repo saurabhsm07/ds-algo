@@ -12,7 +12,7 @@ Output: [[-1,-1,2],[-1,0,1]]
 link: https://leetcode.com/problems/3sum/
 solution link: https://www.youtube.com/watch?v=jzZsG8n2R9A&ab_channel=NeetCode
 
-Tags: blind-75
+Tags: blind-75, Array-9
 """
 
 
