@@ -25,40 +25,20 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        prices_dict, pos_dict = {}, {}
-        for day, price in enumerate(prices):
-            if price not in prices_dict.keys():
-                prices_dict[price] = [day]
-            else:
-                prices_dict[price].append(day)
-
-        prices.sort()
-
         max_profit = 0
+        left, right = 0, 1
 
-        for i in range(len(prices)):
-            if i > 0 and prices[i] == prices[i - 1]:
-                continue
-
-            if max_profit > prices[len(prices) - 1] - prices[i]:
-                break
-
-            for j in range(len(prices) - 1, i, -1):
-                print(prices[i], prices[j])
-                buy_sell_gap = self.get_best_sell_gap(prices_dict, prices[i], prices[j])
-
-                estimated_profit = prices[j] - prices[i]
-
-                if estimated_profit < max_profit:
-                    break
-                max_profit = estimated_profit if buy_sell_gap > 0 and estimated_profit > max_profit else max_profit
+        while right < len(prices):
+            if prices[left] < prices[right]:
+                profit = prices[right] - prices[left]
+                max_profit = max(profit, max_profit)
+            else:
+                left = right
+            right += 1
 
         return max_profit
 
-    def get_best_sell_gap(self, prices_dict, buy_price, sell_price):
-        return max(prices_dict[sell_price]) - min(prices_dict[buy_price])
-
 
 if __name__ == '__main__':
-    # print(Solution().maxProfit([7, 1, 5, 3, 6, 4]))
-    print(Solution().maxProfit([3, 2, 6, 5, 0, 3]))
+    print(Solution().maxProfit([7, 9, 3, 10, 2, 40]))
+    # print(Solution().maxProfit([3, 2, 6, 5, 0, 3]))
