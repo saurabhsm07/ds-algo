@@ -2,6 +2,7 @@
 -- Output share of US users that are active. Active users are the ones with an "open" status in the table.
 -- https://platform.stratascratch.com/coding/2005-share-of-active-users?code_type=1
 -- Solution:
+
 with CTE as (
     select
         distinct country,
