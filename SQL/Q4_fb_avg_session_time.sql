@@ -1,6 +1,6 @@
 -- Problem Statement: A session is defined as the time difference between a page_load and page_exit
 -- https://platform.stratascratch.com/coding/10352-users-by-avg-session-time?code_type=1
--- Tags: CTE, inner_query
+-- Tags: CTE, inner_query, postgres
 
 WITH session_CTE as (
     select
@@ -21,13 +21,10 @@ WITH session_CTE as (
     order by
         user_id
 )
+
 select
     pl.user_id,
-    pe.min_timestamp,
-    pl.max_timestamp,
-    avg(
-        TIMEDIFF(pe.min_timestamp, pl.max_timestamp)
-    ) as avg_session_time
+    avg(pe.min_timestamp - pl.max_timestamp) as session_time
 from
     (
         select
