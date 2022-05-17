@@ -1,6 +1,7 @@
 -- Problem Statement: How much net time separates Chris Doe from the 10th best net time (in ascending order)? Avoid gaps in the ranking calculation. 
 -- Output absolute net time difference.
 -- https://platform.stratascratch.com/coding/2065-time-from-10th-runner?code_type=1
+-- tags: CTE, inner_query
 
 WITH CTE as (
     SELECT

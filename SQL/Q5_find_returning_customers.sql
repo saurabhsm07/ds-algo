@@ -1,5 +1,6 @@
 -- Problem Statement: Write a query that'll identify returning active users
 -- https://platform.stratascratch.com/coding/10322-finding-user-purchases?code_type=3
+-- Tags: CTE, case, window, window_lag, lag, inner_query
 
 WITH transact_CTE as(
     Select

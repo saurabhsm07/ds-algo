@@ -1,5 +1,6 @@
 -- Problem Statement: A session is defined as the time difference between a page_load and page_exit
 -- https://platform.stratascratch.com/coding/10352-users-by-avg-session-time?code_type=1
+-- Tags: CTE, inner_query
 
 WITH session_CTE as (
     select

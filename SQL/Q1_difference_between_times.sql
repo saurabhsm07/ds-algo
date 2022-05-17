@@ -3,6 +3,7 @@
 -- Group the results by available genders (male and female). 
 -- Output the absolute difference between those two values.
 -- https://platform.stratascratch.com/coding/2064-difference-between-times?code_type=1
+-- Tags: union, CTE, groupby
 
 WITH
     marathon_CTE

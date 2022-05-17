@@ -1,5 +1,6 @@
 -- Problem Statement: find the customer with the highest daily total order cost between 2019-02-01 to 2019-05-01
 -- https://platform.stratascratch.com/coding/9915-highest-cost-orders?code_type=1
+-- Tags: CTE, inner_query, window_functions, rank
 
 with
     CTE
