@@ -21,10 +21,13 @@ WITH session_CTE as (
     order by
         user_id
 )
-
 select
     pl.user_id,
-    avg(pe.min_timestamp - pl.max_timestamp) as avg_session_time
+    pe.min_timestamp,
+    pl.max_timestamp,
+    avg(
+        TIMEDIFF(pe.min_timestamp, pl.max_timestamp)
+    ) as avg_session_time
 from
     (
         select
