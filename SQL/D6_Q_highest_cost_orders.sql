@@ -26,3 +26,4 @@ from ( select first_name,
     group by first_name, order_date) t
 where rank = 1
 order by order_date
+

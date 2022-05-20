@@ -1,6 +1,6 @@
 -- Problem Statement: Find the email activity rank for each user
 -- https://platform.stratascratch.com/coding/10351-activity-ran
--- Tags: window, group by, widow_with_group_by
+-- Tags: window, group by, window_with_group_by
 
 select
     from_user,
