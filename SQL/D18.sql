@@ -18,7 +18,6 @@ WITH CTE AS (
     GROUP BY
         state
 )
-
 SELECT
     state,
     5_star_busi
@@ -28,4 +27,31 @@ WHERE
     state_rank < 5
 ORDER BY
     state_rank ASC,
-    state ASC
+    state ASC 
+
+-- ***************************************************************************************************************************
+-- QUERY: Best Selling Item
+-- Problem Statement: Find the best selling item for each month
+-- https://platform.stratascratch.com/coding/10172-best-selling-item?code_type=3
+-- TAGS: window, inner_query 
+
+SELECT
+    invoice_month,
+    total_sale,
+    description
+FROM
+    (
+        SELECT
+            MONTH(invoicedate) AS invoice_month,
+            quantity * unitprice AS total_sale,
+            rank() OVER(
+                PARTITION BY MONTH(invoicedate)
+                ORDER BY
+                    quantity * unitprice DESC
+            ) AS sell_rank,
+            description
+        FROM
+            online_retail
+    ) sale_query
+WHERE
+    sell_rank = 1
