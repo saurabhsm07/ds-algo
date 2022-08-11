@@ -9,6 +9,10 @@ Output: [24,12,8,6]
 
 Input: nums = [-1,1,0,-3,3]
 Output: [0,0,9,0,0]
+
+Link: https://leetcode.com/problems/product-of-array-except-self/
+Solution: https://www.youtube.com/watch?v=bNvIQI2wAjk
+Tags: blind-75, Array-4
 """
 
 
