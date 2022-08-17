@@ -13,7 +13,7 @@ Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-
             Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
 
 link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
-solution link:
+solution link: https://www.youtube.com/watch?v=1pkOgXD63yU
 
 Tags: blind-75, Array-2
 """
