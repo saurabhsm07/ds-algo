@@ -22,28 +22,24 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        prefix_product = []
-        suffix_product = []
-        result_arr = []
-        arr_length = len(nums)
-        # print(arr_length)
-        for i in range(0, arr_length):
-            # print(i)
-            prefix_product.append(nums[i] if i == 0 else nums[i] * prefix_product[i - 1])
-            suffix_product.append(
-                nums[arr_length - 1] if i == 0 else nums[arr_length - i - 1] * suffix_product[i - 1])
+        left_prod, right_prod, result = [], [], []
+        input_length = len(nums)
 
-        print(prefix_product)
-        print(suffix_product)
-        for i in range(0, arr_length):
-            if i == 0:
-                result_arr.append(suffix_product[arr_length - 2])
-            elif i == arr_length - 1:
-                result_arr.append(prefix_product[i - 1])
-            else:
-                result_arr.append(prefix_product[i - 1] * suffix_product[arr_length - 1 - i - 1])
+        left_prod.append(nums[0])    # first element
+        right_prod.append(nums[input_length - 1])  # last element
+        for i in range(1, input_length):
+            left_prod.append(left_prod[i - 1] * nums[i])
+            right_prod.append(right_prod[i - 1] * nums[input_length - 1 - i])
 
-        return result_arr
+        print(left_prod, right_prod)
+
+        result.append(right_prod[input_length - 2])   # first element
+
+        for i in range(1, input_length - 1):
+            result.append(left_prod[i - 1] * right_prod[input_length - 2 - i])
+
+        result.append(left_prod[input_length - 2])  # last element
+        return result
 
 
 """
