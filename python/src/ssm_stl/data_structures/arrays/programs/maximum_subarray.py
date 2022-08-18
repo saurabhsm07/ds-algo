@@ -48,7 +48,7 @@ class Solution:
 
         while right_pointer < len(nums):
             print(left_pointer, right_pointer, current_max)
-            if current_max < 0 or current_max + nums[right_pointer] < 0:
+            if current_max < 0:
                 print('here')
                 current_max = nums[right_pointer]
                 left_pointer = right_pointer
