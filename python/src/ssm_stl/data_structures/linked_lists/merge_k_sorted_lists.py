@@ -66,37 +66,44 @@ class Solution:
         if lists is None or len(lists) == 0:
             return []
         else:
-            return self.merge_lists(lists[0: len(lists)])
+            return self.merge_lists(lists, 0, len(lists) - 1)
 
-    def merge_lists(self, lists):
-        print(len(lists))
-        if len(lists) == 1:
-            return lists[0]
+    def merge_lists(self, lists, low, high):
+        if low == high:
+            return lists[low]
         else:
-            mid = int(len(lists) / 2)
+            mid = int((low + high) / 2)
             print(mid)
-            left_list = self.merge_lists(lists[0:mid])
-            right_list = self.merge_lists(lists[mid+1:len(lists)])
-            return self.merge(left_list, right_list)
+            left_list = self.merge_lists(lists, low, mid)
+            right_list = self.merge_lists(lists, mid + 1, high)
+            merged_list =  self.merge(left_list, right_list)
+            print_linked_list(merged_list)
+            return merged_list
 
     def merge(self, left_list, right_list):
-        print_linked_list(left_list)
-        print_linked_list(right_list)
+        # print_linked_list(left_list)
+        # print_linked_list(right_list)
         result = ListNode()
         current = result
 
         while left_list is not None or right_list is not None:
             if right_list is None:
-                current.next = left_list
+                print(left_list.val)
+                current.next = ListNode(left_list.val)
+                left_list = left_list.next
             elif left_list is None:
-                current.next = right_list
+                print(right_list.val)
+                current.next = ListNode(right_list.val)
+                right_list = right_list.next
             elif left_list.val < right_list.val:
-                current.next = left_list.val
+                print(left_list.val)
+                current.next = ListNode(left_list.val)
                 left_list = left_list.next
             else:
-                current.next = right_list.val
+                print(right_list.val)
+                current.next = ListNode(right_list.val)
                 right_list = right_list.next
-
+            current = current.next
         return result.next
 
 
@@ -119,4 +126,4 @@ def print_linked_list(input):
 
 result = Solution().mergeKLists(input_set)
 
-print(result)
+print_linked_list(result)
