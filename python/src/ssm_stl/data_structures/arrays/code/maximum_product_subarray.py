@@ -19,6 +19,8 @@ Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
 
 Link: https://leetcode.com/problems/maximum-product-subarray/
 Solution: https://www.youtube.com/watch?v=mBNrRy2_hVs
+
+Tags: blind-75, Array-6
 """
 from typing import List
 
