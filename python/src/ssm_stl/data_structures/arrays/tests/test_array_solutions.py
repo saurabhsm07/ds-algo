@@ -1,5 +1,5 @@
 import pytest
-from ssm_stl.data_structures.arrays.code.miscellaneous_2 import check_if_unique
+from ssm_stl.data_structures.arrays.code.misc.miscellaneous_2 import check_if_unique
 
 
 @pytest.mark.array_tests_ps2
