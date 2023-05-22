@@ -50,15 +50,15 @@ def find_lists(n: int, k: int) -> List[List[int]]:
 
     def backtrack_sum(temp_list, n, k):
         if n == 0:
-            result_list.append(temp_list)
+            result_list.append(sorted(temp_list)) if sorted(temp_list) not in result_list else result_list
             return
         elif n < 0:
             return
         else:
             for i in range(1, k + 1):
-                n = n - i
-                temp_list = temp_list+[i]
-                backtrack_sum(temp_list, n, k)
+                new_sum = n - i
+                temp_list_curr = temp_list+[i]
+                backtrack_sum(temp_list_curr, new_sum, k)
 
     backtrack_sum([], n, k)
     return result_list
