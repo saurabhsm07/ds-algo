@@ -41,11 +41,32 @@ Note:
 The order of the lists and the elements within each list does not matter.
 Each list in the output should be unique, i.e., no two lists should have the same elements.
 
+TAGs: backtracking, interview_question, recursion
 """
 from typing import List
 
 
-def find_lists(n: int, k: int) -> List[List[int]]:
+def find_lists_1(n: int, k: int) -> List[List[int]]:
+    result_list = []
+
+    backtrack_sum([], n, k, result_list)
+    return result_list
+
+
+def backtrack_sum(temp_list, n, k, result_list):
+    if n == 0:
+        result_list.append(sorted(temp_list)) if sorted(temp_list) not in result_list else result_list
+        return
+    elif n < 0:
+        return
+    else:
+        for i in range(1, k + 1):
+            new_sum = n - i
+            temp_list_curr = temp_list + [i]
+            backtrack_sum(temp_list_curr, new_sum, k, result_list)
+
+
+def find_lists_2(n: int, k: int) -> List[List[int]]:
     result_list = []
 
     def backtrack_sum(temp_list, n, k):
@@ -57,11 +78,12 @@ def find_lists(n: int, k: int) -> List[List[int]]:
         else:
             for i in range(1, k + 1):
                 new_sum = n - i
-                temp_list_curr = temp_list+[i]
+                temp_list_curr = temp_list + [i]
                 backtrack_sum(temp_list_curr, new_sum, k)
 
     backtrack_sum([], n, k)
     return result_list
 
 
-print(find_lists(5, 4))
+print(find_lists_1(5, 4))
+print(find_lists_2(5, 4))
