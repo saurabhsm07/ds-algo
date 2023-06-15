@@ -7,16 +7,7 @@ WITH transact_CTE as(
         Case
             when COALESCE(DATEDIFF(created_at, last_transact_date), 100) < 7 then user_id
             else Null
-        end as u_id
-    from
-        (
-            select
-                user_id,
-                created_at,
-                lag(created_at) over(
-                    partition by user_id
-                    order by
-                        created_at
+        end as
                 ) as last_transact_date
             from
                 amazon_transactions

@@ -2,13 +2,7 @@
 -- https://platform.stratascratch.com/coding/2055-average-customers-per-city
 -- Tags: CTE, inner_query, multiple_inner_queries, segmented_avg, JOIN, multiple_join, window
 
-WITH CCC_CTE as (
-    SELECT
-        country_tbl.country_name,
-        city_tbl.city_name 
-        -- cust_tbl.id,
-        -- cust_tbl.business_name
-    FROM
+WITH C
         linkedin_customers cust_tbl
         JOIN linkedin_city city_tbl ON cust_tbl.city_id = city_tbl.id
         JOIN linkedin_country country_tbl ON country_tbl.id = city_tbl.country_id

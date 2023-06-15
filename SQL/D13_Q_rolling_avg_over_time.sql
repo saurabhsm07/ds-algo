@@ -6,8 +6,7 @@
 WITH revenue_CTE AS (
     SELECT
         CASE
-            WHEN MONTH(created_at) < 10 THEN CONCAT(YEAR(created_at), '-0', MONTH(created_at))
-            ELSE CONCAT(YEAR(created_at), '-', MONTH(created_at))
+
         END AS month_year,
         SUM(
             CASE
